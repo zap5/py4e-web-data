@@ -20,15 +20,13 @@ newURL = ''
 newHTML = ''
 newSoup = ''
 newTags = tags
-i = 0
 
 print('Retrieving ' + url)
 
-while i < count:
+for num in range(position):
     newURL = newTags[position].attrs['href']
     print('Retrieving ' + newURL)
     newHTML = urlopen(newURL, context=ctx).read()
     newSoup = BeautifulSoup(newHTML, 'html.parser')
     newTags = newSoup.findAll('a')
-    i += 1
 
